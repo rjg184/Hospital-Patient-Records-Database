@@ -1,0 +1,91 @@
+CREATE TABLE People(
+	Name CHAR(20),
+	Address CHAR(20),
+	Age INT,
+	SSN VARCHAR(11) NOT NULL,
+	Phone_Num INT,
+	Sex CHAR(6),
+	PRIMARY KEY (SSN),
+	ON UPDATE SET DEFAULT
+)
+
+CREATE TABLE Patient(
+	Date_discharge VARCHAR(20),
+	Date_admitted VARCHAR(20),
+	PID INT,
+	SSN VARCHAR(11),
+	PRIMARY KEY (PID),
+	FOREIGN KEY (SSN), REFERENCES People ON DELETE CASCADE
+)
+
+CREATE TABLE Employee (
+	SID INT,
+	Salary INT,
+	Email CHAR(20),
+	History CHAR(200),
+	SSN VARCHAR(11),
+	PRIMARY KEY (SID),
+	FOREIGN KEY (SSN), REFERENCES People ON DELETE CASCADE
+)
+
+CREATE TABLE Room (
+	Room_num INT,
+	Wing CHAR(20),
+	Floor INT,
+	PID INT,
+	PRIMARY KEY (Room_num),
+	FOREIGN KEY (PID) REFERENCES Patient 
+)
+
+CREATE TABLE Prescription (
+	Med_code INT,
+	Quantity INT,
+	Price INT,
+	PID INT,
+	PRIMARY KEY (Med_code),
+	FOREIGN KEY (PID) REFERENCES Patient 
+)
+
+CREATE TABLE Medical_History (
+	Allergies CHAR(20),
+	Past_illness CHAR(20),
+	Symptoms CHAR(50),
+	PID INT,
+	File_ID INT,
+	PRIMARY KEY (File_ID),
+	FOREIGN KEY (PID) REFERENCES Patient
+)
+
+CREATE TABLE Visitor (
+	PID INT,
+	Date VARCHAR(20),
+	Reason CHAR(50),
+	Name CHAR(20),
+	RID INT,
+	Visitor_ID INT
+	PRIMARY KEY (Visitor_ID),
+	FOREIGN KEY (RID,PID), REFERENCES Patient, Receptionist
+)
+
+CREATE TABLE Doctor (
+	DID INT,
+	SID INT,
+	Specialty CHAR(20),
+	PRIMARY KEY (DID),
+	FOREIGN KEY (SID) REFERENCES Employee
+)
+
+CREATE TABLE Nurse (
+	NID INT,
+	SID INT,
+	Type Char(20)
+	PRIMARY KEY (NID),
+	FOREIGN KEY (SID) REFERENCES Employee
+)
+
+CREATE TABLE Receptionist (
+	RID INT,
+	SID INT,
+	PRIMARY KEY (RID),
+	FOREIGN KEY (SID) REFERENCES Employee ON DELETE CASCADE
+)
