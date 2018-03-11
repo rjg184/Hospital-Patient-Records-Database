@@ -1,3 +1,7 @@
-# Hospital's Patient Record Database - Login Page
+# KARAD Hospital Management System - Login Page
 
-implementation in progress
+- Website Link:
+http://ec2-18-219-22-24.us-east-2.compute.amazonaws.com:8080/KARADLogin4/
+(as long as the server is running, the website is publicly running and accessible)
+
+- Login page created in Eclipse using JSP, HTML, and SQL.
