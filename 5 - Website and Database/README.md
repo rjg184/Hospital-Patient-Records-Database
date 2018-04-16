@@ -10,6 +10,8 @@ ______________
 
 ______________
 
+# Functionalities
+
 **Some Functionalities**: 
 - Admitting patients into the hospital and assigning them an available room
 - Listing all patients or searching for patients with certain symptoms or illnesses
