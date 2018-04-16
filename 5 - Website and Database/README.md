@@ -8,6 +8,9 @@ ______________
 - *(as long as the tomcat7 server is running, the website is fully functional and publicly accessible)*
 - Allows healthcare professionals to maintain personal and medical information regarding patients in a hospital database of patient records
 
+______________
+
+**Some Functionalities**: 
 - Admitting patients into the hospital and assigning them an available room
 - Listing all patients or searching for patients with certain symptoms or illnesses
 - Discharging patients once they have received medical treatment to free their assigned rooms
